@@ -1,6 +1,6 @@
-
 pipeline {
     agent any
+
     stages {
         stage('Checkout') {
             steps {
@@ -15,12 +15,8 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'mvn test'
+                junit '**/target/surefire-reports/*.xml'
             }
-        }
-    }
-    post {
-        always {
-            junit '**/target/surefire-reports/*.xml'
         }
     }
 }
