@@ -2,11 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/Renganathan625/java-ci-demo.git'
-            }
-        }
         stage('Build') {
             steps {
                 sh 'mvn clean install'
